@@ -1,5 +1,4 @@
-variable "environment" { type = string }
-variable "prefix" { type = string }
+
 
 terraform {
   required_version = ">= 1.5.0"
