@@ -22,3 +22,14 @@ variable "subnets" {
   type        = map(any)
   description = "Map med subnett"
 }
+variable "environment" {
+  type        = string
+  description = "Miljø (f.eks. dev)"
+  default     = "dev"
+}
+
+variable "prefix" {
+  type        = string
+  description = "Ressursprefiks"
+  default     = "ooving8"
+}
