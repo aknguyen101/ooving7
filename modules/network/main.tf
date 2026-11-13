@@ -5,7 +5,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-${var.prefix}-${var.environment}"
+  name     = var.resource_group_name
   location = var.location
 }
 
@@ -16,7 +16,9 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = azurerm_resource_group.rg.name
 }
 
-locals {
-  # Sikrer at subnets-variablen regnes som i bruk av TFLint
-  configured_subnets = var.subnets
+resource "azurerm_subnet" "subnet" {
+  name                 = "subnet-internal"
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  address_prefixes     = var.subnets
 }
