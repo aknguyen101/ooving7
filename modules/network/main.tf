@@ -37,16 +37,3 @@ resource "azurerm_subnet_network_security_group_association" "nsg_assoc" {
   subnet_id                 = azurerm_subnet.subnet.id
   network_security_group_id = azurerm_network_security_group.nsg.id
 }
-```[cite: 14]
-
-<Steps>
-  <Step subtitle="Steg 1" title="Oppdater filen på GitHub">
-    Gå til `modules/network/main.tf` i ditt GitHub-repository, klikk på blyantikonet (**Edit**), lim inn koden ovenfor, og trykk **Commit changes**.
-    *Verifisering:* Endringen lagres i `main`-branchen.
-  </Step>
-  
-  <Step subtitle="Steg 2" title="Sjekk pipelinen">
-    Gå til **Actions**-fanen og følg med på at `test-network`-kjøringen starter automatisk.
-    *Verifisering:* Alle stegene – inkludert Checkov – fullfører nå uten feil og blir helt grønne, slik at du kan gå videre til å tagge `network-v1.2.0`.
-  </Step>
-</Steps>
