@@ -1,14 +1,7 @@
 name: "terraform-modul7"
 
 on:
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - "modul7/**"
-  push:
-    branches: [ "main" ]
-    paths:
-      - "modul7/**"
+  workflow_dispatch:
 
 permissions:
   contents: read
