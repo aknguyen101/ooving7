@@ -33,3 +33,11 @@ variable "prefix" {
   description = "Ressursprefiks"
   default     = "ooving8"
 }
+variable "project" {
+  type        = string
+  description = "Project name (must be lowercase)"
+  validation {
+    condition     = can(regex("^[a-z0-9-]+$", var.project))
+    error_message = "Project name must consist of lowercase letters, numbers, and hyphens."
+  }
+}
